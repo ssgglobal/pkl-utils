@@ -1,6 +1,6 @@
-ammends "pkl:base"
+amends "pkl:base"
 
 output {
-  text = new PropertiesRenderer {}.renderDocument(module)
-    .replaceAll(" = ", "=")
+  renderer = new PropertiesRenderer {}
+  text = new PropertiesRenderer {}.renderDocument(module).replaceAll(" = ", "=")
 }
