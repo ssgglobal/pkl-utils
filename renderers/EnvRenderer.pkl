@@ -1,0 +1,6 @@
+ammends "pkl:base"
+
+output {
+  text = new PropertiesRenderer {}.renderDocument(module)
+    .replaceAll(" = ", "=")
+}
