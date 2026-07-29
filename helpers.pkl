@@ -1,0 +1,12 @@
+function envBool(key: String, default: Boolean): Boolean =
+  let (value = read?("env:\(key)") ?? default.toString())
+    value == "true" || value == "1" || value == "yes"
+
+function envInt(key: String, default: Int): Int =
+    (read?("env:\(key)") ?? default.toString()).toInt()
+
+function envNullable(key: String): String? = let (value = read?("env:\(key)")) if (value == "null") null else value
+function envString(key: String, default: String): String = read?("env:\(key)") ?? default
+
+typealias Environment = "local"|"testing"|"staging"|"qa"|"production"
+typealias LogLevel = "debug"|"info"|"notice"|"warning"|"error"|"critical"|"alert"|"emergency"
